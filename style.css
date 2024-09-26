@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+
+:root {
+    --bg: #d8ceb8;
+    --text-bubble-bg: #f2e0b6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: black;
+    font: 4vmin/1 "Comic Neue", cursive;
+    overflow: hidden;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(5, auto);
+    place-content: center;
+    height: 100vh;
+    margin: 2rem 1rem 0;
+}
+
+img {
+    grid-area: 2 / 2 / 5 / 5;
+    max-width: 100%;
+    max-height: 100vh;
+}
+
+p {
+    background: var(--text-bubble-bg);
+    border-radius: 100%;
+    box-shadow: 0 -0.5vmin, 0 0.5vmin, -0.25vmin 0, 0.25vmin 0;
+    display: inline-block;
+    grid-area: 2 / 4 / 3 / 5;
+    padding: clamp(1em, 0.8rem + 1vw, 2em);
+    position: relative;
+    text-align: center;
+
+    a {
+        color: inherit;
+    }
+
+    &::before {
+        border-radius: 50%;
+        box-shadow: 0.5vmin 0, 2vmin -0.5vmin var(--text-bubble-bg), 2vmin -0.5vmin 0 0.5vmin;
+        clip-path: polygon(0% 54%, 150% 62%, 100% 100%, 0% 100%);
+        content: "";
+        position: absolute;
+        bottom: -40%;
+        left: 0;
+        width: 40%;
+        height: 100%;
+    }
+
+    &::after {
+        background: var(--text-bubble-bg);
+        border-radius: 25%;
+        content: "";
+        position: absolute;
+        bottom: -1%;
+        left: 41%;
+        width: 4.5%;
+        height: 4.5%;
+    }
+}
